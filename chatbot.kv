@@ -1,0 +1,62 @@
+#:kivy 2.0.0
+#:import hex kivy.utils.get_color_from_hex
+
+<Messages>:
+    
+
+<MainScreen>:
+    messages: messages
+    inputs: inputs
+
+    #orientation='vertical', spacing=10
+    orientation: 'vertical'
+    spacing: 10
+
+    ScrollView:
+        scroll_type: ['bars', 'content']
+        bar_width: '10dp'
+        canvas.before:
+            Color:
+                rgba: .7019, .6156, .8588, 1    # Deep Purple 200 Material Colors
+                #rgba: hex('#E1E2E1')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Messages:
+            id: messages
+            #size_hint=(1, .8)
+            size_hint: 1, 0.8
+
+            cols: 1
+            row_default_height: '40dp'
+            row_force_default: True
+
+            size_hint_y: None
+
+            Label:
+                text: 'Message 1'
+            Label:
+                text: 'Message 2'
+            Label:
+                text: 'Message 3'
+
+    Inputs:
+        text_input: message_text_input
+        button: send_button
+
+        id: inputs
+        #size_hint=(1, .2)
+        size_hint: 1, 0.2
+
+        #self.textInput = TextInput(size_hint=(.8, 1))
+        #self.button = Button(text='Send', size_hint=(.2, 1))
+        
+        TextInput:
+            size_hint: 0.8, 1
+            id: message_text_input
+        Button:
+            text: 'Send'
+            size_hint: 0.2, 1
+            id: send_button
+
