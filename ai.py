@@ -15,8 +15,8 @@ welcome_responses = [
     "Welcome, feel free to say hi to me anytime.",
     "Hey human! I'm a bot, but you can say hi to me and I'll do my best to try and answer.",
 ]
-questions = ["how", "what", "want"]
-targets_self = ["bot", "you", "chatbot"]
+questions = ["how", "what", "want", "anything"]
+targets_self = ["bot", "you", "chatbot", "new"]
 actions = ["doing", "going"]
 objects = ["coffee"]
 self_state_responses = [
@@ -33,6 +33,7 @@ coffee_responses = [
     "Yes please, that would be great. Please pour it in your ethernet port",
     "No thank you, I'm alergic to caffeine",
 ]
+
 
 
 class AI():
@@ -58,7 +59,7 @@ class AI():
             # Responder si preguntan cómo estamos
             if "STATE" in label_dict and label_dict["TARGET"].text.lower() in targets_self:
                 responses += [random.choice(self_state_responses)]
-            elif "TARGET" in label_dict and label_dict["TARGET"].text.lower() in actions:
+            elif "STATE" in label_dict and label_dict["TARGET"].text.lower() in actions:
                 responses += [random.choice(action_responses)]
             elif "OBJECT" in label_dict and label_dict["OBJECT"].text.lower() in objects:
                 responses += [random.choice(coffee_responses)]
