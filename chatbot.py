@@ -34,6 +34,7 @@ class MainScreen(BoxLayout):
 
 class ChatbotApp(App):
     def build(self):
+        self.title = 'CHATBOT POWERED BY GODBOT'
         return MainScreen()
         # Main widget - MainScreen
         # self.layout = BoxLayout(orientation='vertical', spacing=10)

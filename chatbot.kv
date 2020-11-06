@@ -1,7 +1,16 @@
 #:kivy 2.0.0
 #:import hex kivy.utils.get_color_from_hex
 
-<Messages>:
+<Label@Messages>:
+    text_size: self.size
+    halign: 'left'
+    font_name: 'DejaVuSans'
+    bold: True
+
+<Label@Button>
+    text_size: self.size
+    halign: 'center'
+    valign: 'middle'
     
 
 <MainScreen>:
@@ -15,13 +24,15 @@
     ScrollView:
         scroll_type: ['bars', 'content']
         bar_width: '10dp'
+
         canvas.before:
             Color:
-                rgba: .7019, .6156, .8588, 1    # Deep Purple 200 Material Colors
-                #rgba: hex('#E1E2E1')
+                #rgba: .7019, .6156, .8588, 0.2
+                rgba: hex('#253C78')
             Rectangle:
-                pos: self.pos
-                size: self.size
+                pos: self.pos          
+                size: self.size    
+                source: 'BTexture.jpg'
 
         Messages:
             id: messages
@@ -33,13 +44,6 @@
             row_force_default: True
 
             size_hint_y: None
-
-            Label:
-                text: 'Message 1'
-            Label:
-                text: 'Message 2'
-            Label:
-                text: 'Message 3'
 
     Inputs:
         text_input: message_text_input
