@@ -274,7 +274,7 @@ def test_model(nlp):
             # Responder si preguntan cómo estamos
             if "STATE" in label_dict and label_dict["TARGET"].text.lower() in targets_self:
                 responses += [random.choice(self_state_responses)]
-            elif label_dict["TARGET"].text.lower() in actions:
+            elif "TARGET" in label_dict and label_dict["TARGET"].text.lower() in actions:
                 responses += [random.choice(action_responses)]
             elif "OBJECT" in label_dict and label_dict["OBJECT"].text.lower() in objects:
                 responses += [random.choice(coffee_responses)]
